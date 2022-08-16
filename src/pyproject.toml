@@ -8,6 +8,7 @@ authors = ["marianobrc <marianomartinez84@gmail.com>"]
 python = "^3.10"
 Django = "^4.1"
 channels = "^3.0.5"
+psycopg2 = "^2.9.3"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
