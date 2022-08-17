@@ -60,7 +60,7 @@ FROM base as prod
 RUN /bin/true\
     && poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-dev \
-    && rm -rf /root/.cache/pypoetry
+    && rm -rf /home/web/.cache/pypoetry
 # Copy the script that starts the production application server (gunicorn)
 COPY --chown=web:web ./docker/chat/start-prod-server.sh /usr/local/bin/start-prod-server.sh
 USER root
