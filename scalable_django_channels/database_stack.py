@@ -44,7 +44,7 @@ class DatabaseStack(Stack):
             parameter_group=rds.ParameterGroup.from_parameter_group_name(  # Specify the postgresql version
                 self,
                 "AuroraDBParameterGroup",
-                "default.aurora-postgresql10"  # Only this version is supported for Aurora Serverless now
+                "default.aurora-postgresql11"  # Only this version is supported for Aurora Serverless now
             ),
             scaling=rds.ServerlessScalingOptions(
                 auto_pause=Duration.minutes(self.auto_pause_minutes),  # Shutdown after minutes of inactivity to save costs
