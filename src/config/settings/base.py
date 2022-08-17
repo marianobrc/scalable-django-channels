@@ -80,6 +80,14 @@ TEMPLATES = [
 
 #WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [(os.environ.get("REDIS_HOST"), os.environ.get("REDIS_PORT", 6379))],
+        },
+    },
+}
 
 # Custom User model
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-user-model
