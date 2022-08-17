@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # todo: since this is a dev environment key, it is okay to check it into version control
 #       although not the best thing to do. in production, the key is overridden.
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-d2%c9nrw#-5mifb*$ux4dvjr&2i6u1%f=v9bd!)^ic^zjt38gb'
 
@@ -39,12 +38,13 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 THIRD_PARTY_APPS = [
-
+    'channels',
 ]
 
 LOCAL_APPS = [
     # Project apps go here
     'users',
+    'chat'
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'my_django_chat.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
+#WSGI_APPLICATION = 'my_django_chat.wsgi.application'
+ASGI_APPLICATION = 'my_django_chat.asgi.application'
 
 # Custom User model
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-user-model
