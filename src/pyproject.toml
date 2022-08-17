@@ -9,6 +9,7 @@ python = "^3.10"
 Django = "^4.1"
 channels = "^3.0.5"
 psycopg2 = "^2.9.3"
+channels-redis = "^3.4.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
