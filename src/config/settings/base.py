@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'my_django_chat.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -78,8 +78,8 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'my_django_chat.wsgi.application'
-ASGI_APPLICATION = 'my_django_chat.asgi.application'
+#WSGI_APPLICATION = 'config.wsgi.application'
+ASGI_APPLICATION = 'config.asgi.application'
 
 # Custom User model
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-user-model
