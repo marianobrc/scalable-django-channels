@@ -50,7 +50,7 @@ class MyDjangoChatAppPipelineStack(Stack):
                 commands=[
                     "npm install -g aws-cdk",  # Installs the cdk cli on Codebuild
                     "pip install -r requirements.txt",  # Instructs Codebuild to install required packages
-                    "npx cdk synth MyDjangoAppPipeline",
+                    "npx cdk synth MyDjangoChatPipeline",
                 ]
             ),
         )
