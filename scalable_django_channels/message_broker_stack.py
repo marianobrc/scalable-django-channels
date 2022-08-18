@@ -33,11 +33,11 @@ class MessageBrokerStack(Stack):
             description="Allow Redis connection",
             connection=ec2.Port.tcp(6379),
         )
-        private_subnets_ids = [ps.subnet_id for ps in vpc.private_subnets]
+        isolated_subnets_ids = [ps.subnet_id for ps in vpc.isolated_subnets]
         self.redis_subnet_group = elasticache.CfnSubnetGroup(
             scope=self,
             id="redis_subnet_group",
-            subnet_ids=private_subnets_ids,
+            subnet_ids=isolated_subnets_ids,
             description="subnet group for redis",
         )
         # Elasticache for Redis cluster
