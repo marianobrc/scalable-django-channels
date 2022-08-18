@@ -1,4 +1,4 @@
-# Scalable Django Apps
+# Scalable Django Chat
 A sample project for an auto-scalable chat app using Django & Channels, ready to be deployed in AWS with Docker and CDK.
 
 At the root of this repository you will find a CDK (v2) project. 
