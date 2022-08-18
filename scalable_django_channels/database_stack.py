@@ -34,18 +34,15 @@ class DatabaseStack(Stack):
         self.aurora_serverless_db = rds.ServerlessCluster(
             self,
             "AuroraServerlessCluster",
-            engine=rds.DatabaseClusterEngine.AURORA_POSTGRESQL,
+            engine=rds.DatabaseClusterEngine.aurora_postgres(
+                version=rds.AuroraPostgresEngineVersion.VER_11_13
+            ),
             vpc=self.vpc,
             vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PRIVATE_ISOLATED),
             default_database_name=self.database_name,
             backup_retention=Duration.days(self.backup_retention_days),  # 1 day retention is free
             deletion_protection=True,
             enable_data_api=True,  # Allow running queries in AWS console (free)
-            parameter_group=rds.ParameterGroup.from_parameter_group_name(  # Specify the postgresql version
-                self,
-                "AuroraDBParameterGroup",
-                "default.aurora-postgresql11"  # Only this version is supported for Aurora Serverless now
-            ),
             scaling=rds.ServerlessScalingOptions(
                 auto_pause=Duration.minutes(self.auto_pause_minutes),  # Shutdown after minutes of inactivity to save costs
                 min_capacity=self.min_capacity,
